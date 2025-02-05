@@ -101,7 +101,7 @@ s2_dop <- function(s2_orbits = 1:143,
   
   
   ## Check mission
-  if (!all(grepl("^2[AB]$", mission))) {
+  if (!all(grepl("^2[ABC]$", mission))) {
     print_message(
       type = "error",
       "Parameter 'mission' cannot contain values different from \"2A\" and/or \"2B\"."
