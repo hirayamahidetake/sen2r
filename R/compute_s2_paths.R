@@ -257,49 +257,49 @@ compute_s2_paths <- function(pm,
     "tiles" = sapply(list_prods, function(prod) {
       list.files(
         file.path(paths["tiles"], if (pm$path_subdirs) {prod}),
-        paste0("^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([0-9]{2}[A-Z]{3})\\_(",prod,")\\_([126]0)\\.?(",out_ext["tiles"],")$"),
+        paste0("^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([0-9]{2}[A-Z]{3})\\_(",prod,")\\_([126]0)\\.?(",out_ext["tiles"],")$"),
         full.names=TRUE
       )
     }, simplify = FALSE, USE.NAMES = TRUE),
     "merged" = sapply(list_prods, function(prod) {
       list.files(
         file.path(paths["merged"], if (pm$path_subdirs) {prod}),
-        paste0("^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_\\_(",prod,")\\_([126]0)\\.?(",out_ext["merged"],")$"),
+        paste0("^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_\\_(",prod,")\\_([126]0)\\.?(",out_ext["merged"],")$"),
         full.names=TRUE
       )
     }, simplify = FALSE, USE.NAMES = TRUE),
     "warped" = sapply(list_prods[!list_prods %in% nomsk], function(prod) {
       list.files(
         file.path(paths["warped"], if (pm$path_subdirs) {prod}),
-        paste0("^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["warped"],")$"),
+        paste0("^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["warped"],")$"),
         full.names=TRUE
       )
     }, simplify = FALSE, USE.NAMES = TRUE),
     "warped_nomsk" = sapply(list_prods[list_prods %in% nomsk], function(prod) {
       list.files(
         file.path(paths["warped_nomsk"], if (pm$path_subdirs) {prod}),
-        paste0("^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["warped_nomsk"],")$"),
+        paste0("^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["warped_nomsk"],")$"),
         full.names=TRUE
       )
     }, simplify = FALSE, USE.NAMES = TRUE),
     "rgb" = sapply(list_rgb, function(prod) {
       list.files(
         file.path(paths["rgb"], if (pm$path_subdirs) {prod}),
-        paste0("^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["rgb"],")$"),
+        paste0("^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["rgb"],")$"),
         full.names=TRUE
       )
     }, simplify = FALSE, USE.NAMES = TRUE),
     "masked" = sapply(list_prods[!list_prods %in% nomsk], function(prod) {
       list.files(
         file.path(paths["masked"], if (pm$path_subdirs) {prod}),
-        paste0("^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["masked"],")$"),
+        paste0("^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["masked"],")$"),
         full.names=TRUE
       )
     }, simplify = FALSE, USE.NAMES = TRUE),
     "indices" = sapply(list_indices, function(prod) {
       list.files(
         file.path(paths["indices"], if (pm$path_subdirs) {prod}),
-        paste0("^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["indices"],")$"),
+        paste0("^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_(",prod,")\\_([126]0)\\.?(",out_ext["indices"],")$"),
         full.names=TRUE
       )
     }, simplify = FALSE, USE.NAMES = TRUE)
