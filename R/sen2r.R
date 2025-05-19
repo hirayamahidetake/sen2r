@@ -1213,7 +1213,7 @@ sen2r <- function(param_list = NULL,
             !gsub(
               "\\_OPER\\_","_USER_",
               gsub(
-                "S2([ABC])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_","S2\\1\\_\\2MSIL2A\\_",
+                "S2([ABCD])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_","S2\\1\\_\\2MSIL2A\\_",
                 all_l1c
               )
             ) %in% all_l2a
@@ -1448,7 +1448,7 @@ sen2r <- function(param_list = NULL,
         !gsub(
           "\\_OPER\\_","_USER_",
           gsub(
-            "^S2([ABC])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_([0-9T]{15})\\_N[0-9]{4}\\_",
+            "^S2([ABCD])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_([0-9T]{15})\\_N[0-9]{4}\\_",
             "S2\\1\\_\\2MSIL2A\\_\\3\\_NXXXX\\_",
             names(s2_list_l1c)
           )
@@ -1461,7 +1461,7 @@ sen2r <- function(param_list = NULL,
       s2_list_l2a_tobecorrected <- gsub(
         "\\_OPER\\_","_USER_",
         gsub(
-          "^S2([ABC])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_","S2\\1\\_\\2MSIL2A\\_",
+          "^S2([ABCD])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_","S2\\1\\_\\2MSIL2A\\_",
           names(s2_list_l1c_tocorrect)
         )
       )
@@ -1672,7 +1672,7 @@ sen2r <- function(param_list = NULL,
     safe_names_l1c_tocorrect <- gsub(
       "\\_USER\\_","_OPER_",
       gsub(
-        "^S2([ABC])\\_((?:USER\\_PRD\\_)?)MSIL2A\\_","S2\\1\\_\\2MSIL1C\\_",
+        "^S2([ABCD])\\_((?:USER\\_PRD\\_)?)MSIL2A\\_","S2\\1\\_\\2MSIL1C\\_",
         basename(nn(safe_names_l2a_reqout))
       )
     )
@@ -1730,7 +1730,7 @@ sen2r <- function(param_list = NULL,
             #       strftime(safe_getMetadata(x, info="nameinfo")$sensing_datetime, "%Y-%m-%d")
             #     }, USE.NAMES = FALSE) %in% as.character(d)]
             #   })
-            v3[grepl(paste0("[12][ABC]\\_((",paste(d_string,collapse=")|("),"))"), basename(nn(v3)))] # less meticulous, but faster
+            v3[grepl(paste0("[12][ABCD]\\_((",paste(d_string,collapse=")|("),"))"), basename(nn(v3)))] # less meticulous, but faster
           }, simplify = FALSE, USE.NAMES = TRUE)
         }, simplify = FALSE, USE.NAMES = TRUE)
       }, simplify = FALSE, USE.NAMES = TRUE)
@@ -1742,7 +1742,7 @@ sen2r <- function(param_list = NULL,
       #     strftime(safe_getMetadata(s, info="nameinfo")$sensing_datetime, "%Y-%m-%d")
       #   }) %in% as.character(d)
       #   ]
-      s2_list_l1c[grepl(paste0("[12][ABC]\\_((",paste(d_string,collapse=")|("),"))"), names(s2_list_l1c))] # less meticulous, but faster
+      s2_list_l1c[grepl(paste0("[12][ABCD]\\_((",paste(d_string,collapse=")|("),"))"), names(s2_list_l1c))] # less meticulous, but faster
     })
     s2_list_l2a_groups_A <- lapply(sen2r_groups_A, function(d) {
       d_string <- strftime(d, "%Y%m%d")
@@ -1751,7 +1751,7 @@ sen2r <- function(param_list = NULL,
       #     strftime(safe_getMetadata(s, info="nameinfo")$sensing_datetime, "%Y-%m-%d")
       #   }) %in% as.character(d)
       #   ]
-      s2_list_l2a[grepl(paste0("[12][ABC]\\_((",paste(d_string,collapse=")|("),"))"), names(s2_list_l2a))] # less meticulous, but faster
+      s2_list_l2a[grepl(paste0("[12][ABCD]\\_((",paste(d_string,collapse=")|("),"))"), names(s2_list_l2a))] # less meticulous, but faster
     })
     s2_dt_groups_A <- lapply(sen2r_groups_A, function(d) {
       s2_dt[
@@ -1759,7 +1759,7 @@ sen2r <- function(param_list = NULL,
         #   strftime(safe_getMetadata(s, info="nameinfo")$sensing_datetime, "%Y-%m-%d")
         # }) %in% as.character(d),
         as.Date(
-          gsub("^S2[ABC]\\_MSIL[12][AC]\\_([0-9]{8})T.+$", "\\1", name),
+          gsub("^S2[ABCD]\\_MSIL[12][AC]\\_([0-9]{8})T.+$", "\\1", name),
           "%Y%m%d"
         ) %in% d, # less meticulous, but faster
         ]
@@ -2153,7 +2153,7 @@ sen2r <- function(param_list = NULL,
             !gsub(
               "\\_OPER\\_","_USER_",
               gsub(
-                "^S2([ABC])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_","S2\\1\\_\\2MSIL2A\\_",
+                "^S2([ABCD])\\_((?:OPER\\_PRD\\_)?)MSIL1C\\_","S2\\1\\_\\2MSIL2A\\_",
                 names(sel_s2_list_l1c)
               )
             ) %in% names(sel_s2_list_l2a) &
@@ -2281,7 +2281,7 @@ sen2r <- function(param_list = NULL,
                 #       strftime(safe_getMetadata(x, info="nameinfo")$sensing_datetime, "%Y-%m-%d")
                 #     }, USE.NAMES = FALSE)) == d]
                 #   })
-                v3[grepl(paste0("[12][ABC]\\_((",paste(d_string,collapse=")|("),"))"), basename(nn(v3)))] # less meticulous, but faster
+                v3[grepl(paste0("[12][ABCD]\\_((",paste(d_string,collapse=")|("),"))"), basename(nn(v3)))] # less meticulous, but faster
               }, simplify = FALSE, USE.NAMES = TRUE)
             }, simplify = FALSE, USE.NAMES = TRUE)
           }, simplify = FALSE, USE.NAMES = TRUE)
