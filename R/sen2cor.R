@@ -301,7 +301,7 @@ sen2cor <- function(
     # (in case using Sen2cor 2.8.0, this is necessary in order not to 
     # re-correct L1C products every time)
     sel_l2a_regex <- gsub(
-      "^S(2[ABC])\\_MSIL([12][AC])\\_([0-9]{8}T[0-9]{6})\\_N([0-9]{4})\\_R([0-9]{3})\\_T([A-Z0-9]{5})\\_([0-9]{8}T[0-9]{6})\\.SAFE$",
+      "^S(2[ABCD])\\_MSIL([12][AC])\\_([0-9]{8}T[0-9]{6})\\_N([0-9]{4})\\_R([0-9]{3})\\_T([A-Z0-9]{5})\\_([0-9]{8}T[0-9]{6})\\.SAFE$",
       "^S\\1\\\\_MSIL\\2\\\\_\\3\\\\_N[0-9]{4}\\\\_R\\5\\\\_T\\6\\\\_[0-9]{8}T[0-9]{6}\\\\.SAFE$",
       basename(sel_l2a)
     )
