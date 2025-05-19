@@ -48,7 +48,7 @@ add_tile_suffix <- function(paths, suffix) {
       n_paths <- sum(paths==sel_upath)
       paths[paths==sel_upath] <- sapply(seq_len(n_paths), function(i) {
         gsub(
-          "(S2[ABC][12][AC]\\_[0-9]{8}\\_[0-9]{3})\\_([0-9]{2}[A-Z]{3})\\_([^\\_\\.]+\\_[126]0\\.?[^\\_]*$)",
+          "(S2[ABCD][12][AC]\\_[0-9]{8}\\_[0-9]{3})\\_([0-9]{2}[A-Z]{3})\\_([^\\_\\.]+\\_[126]0\\.?[^\\_]*$)",
           paste0("\\1_\\2",letters[i],"_\\3"),
           sel_upath
         )
@@ -59,7 +59,7 @@ add_tile_suffix <- function(paths, suffix) {
     # Custom behaviour: add specific suffix to all the paths
     if (is.na(suffix)) {suffix <- ""}
     gsub(
-      "(S2[ABC][12][AC]\\_[0-9]{8}\\_[0-9]{3})\\_([0-9]{2}[A-Z]{3})\\_([^\\_\\.]+\\_[126]0\\.?[^\\_]*$)",
+      "(S2[ABCD][12][AC]\\_[0-9]{8}\\_[0-9]{3})\\_([0-9]{2}[A-Z]{3})\\_([^\\_\\.]+\\_[126]0\\.?[^\\_]*$)",
       paste0("\\1_\\2",suffix,"_\\3"),
       paths
     )
@@ -76,7 +76,7 @@ remove_tile_suffix <- function(paths) {
   sapply(paths, function(p) {
     gsub(
       paste0(
-        "(S2[ABC][12][AC]\\_[0-9]{8}\\_[0-9]{3})\\_([0-9]{2}[A-Z]{3})",
+        "(S2[ABCD][12][AC]\\_[0-9]{8}\\_[0-9]{3})\\_([0-9]{2}[A-Z]{3})",
         accepted_suffixes,
         "\\_([^\\_\\.]+\\_[126]0\\.?[^\\_]*$)"
       ),
@@ -96,7 +96,7 @@ extract_tile_suffix <- function(paths) {
   sapply(paths, function(p) {
     gsub(
       paste0(
-        "^.*S2[ABC][12][AC]\\_[0-9]{8}\\_[0-9]{3}\\_[0-9]{2}[A-Z]{3}",
+        "^.*S2[ABCD][12][AC]\\_[0-9]{8}\\_[0-9]{3}\\_[0-9]{2}[A-Z]{3}",
         "(",accepted_suffixes,")",
         "\\_[^\\_\\.]+\\_[126]0\\.?[^\\_]*$"
       ),
