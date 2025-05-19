@@ -44,12 +44,12 @@ sen2r_getElements <- function(
   # static definitions: regex
   list_regex <- list(
     "sen2r" = list(
-      "regex" = "^S2([ABC])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_([^\\_\\.]+)\\_([126]0)\\.?([^\\_]*)$",
+      "regex" = "^S2([ABCD])([12][AC])\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_([^\\_\\.]+)\\_([126]0)\\.?([^\\_]*)$",
       "elements" = c("mission","level","sensing_date","id_orbit","extent_name","prod_type","res","file_ext"),
       "date_format" = "%Y%m%d"
     ),
     "sen2r_new" = list(
-      "regex" = "^S2\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_([ABC])\\_([^\\_\\.]+)\\.?([^\\_]*)$",
+      "regex" = "^S2\\_([0-9]{8})\\_([0-9]{3})\\_([^\\_\\.]*)\\_([ABCD])\\_([^\\_\\.]+)\\.?([^\\_]*)$",
       "elements" = c("sensing_date","id_orbit","extent_name","mission","prod_type","file_ext"),
       "date_format" = "%Y%m%d"
     )
