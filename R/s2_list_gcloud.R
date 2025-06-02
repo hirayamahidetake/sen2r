@@ -105,9 +105,12 @@
   
   # Extract / fitler clouds
   gc_meta$clouds <- sapply(gc_xml_list, function(x) {
-    as.numeric(saveXML(
-      x[["quality_indicators_info"]][["cloud_coverage_assessment"]][["text"]]
-    ))
+  cc <- x[["quality_indicators_info"]][["cloud_coverage_assessment"]][["text"]]
+  if (!is.null(cc)) {
+    as.numeric(saveXML(cc))
+  } else {
+    NA
+  }
   })
   gc_meta <- gc_meta[clouds<=max_cloud,]
   
